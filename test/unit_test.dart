@@ -27,4 +27,18 @@ void main() {
   test('Supports custom delimiter', () {
     expect(StringCalculator.add("//;\n1;2"), 3);
   });
+
+  // Test case to handle negative numbers
+  test('Throws exception for negative number', () {
+    expect(
+      () => StringCalculator.add("1,-2,3"),
+      throwsA(
+        predicate(
+          (e) =>
+              e is Exception &&
+              e.toString().contains("negative numbers not allowed -2"),
+        ),
+      ),
+    );
+  });
 }

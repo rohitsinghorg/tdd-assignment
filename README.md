@@ -1,4 +1,5 @@
 # TDD Assignment
+
 ## _Made for Incubyte_
 
 In this assignment, we will write down the test cases for "String Calculator TDD Kata" by keeping the below points in mind:
@@ -32,9 +33,9 @@ TDD Assignment requires [Flutter](https://flutter.dev/) to run.
 
 TDD Assignment is currently dependent with the following plugins.
 
-| Plugin | README |
-| ------ | ------ |
-| test | https://pub.dev/packages/test |
+| Plugin | README                        |
+| ------ | ----------------------------- |
+| test   | https://pub.dev/packages/test |
 
 ## Development
 
@@ -51,21 +52,32 @@ flutter test
 #### Result for Initial Test Case
 
 As we are considering:
-> Support different delimiters:
-- To change the delimiter, the beginning of the string will contain a separate line that looks like this: "//[delimiter]\n[numbers…]". For example, "//;\n1;2" where the delimiter is ";" should return 3.
+
+> Calling add with a negative number will throw an exception: "negative numbers not allowed <negative_number>".
+
+- If there are multiple negative numbers, show all of them in the exception message, separated by commas.
 
 I have written down the test case as:
 
 ```dart
-test('Supports custom delimiter', () {
-    expect(StringCalculator.add("//;\n1;2"), 3);
+  test('Throws exception for negative number', () {
+    expect(
+      () => StringCalculator.add("1,-2,3"),
+      throwsA(
+        predicate(
+          (e) =>
+              e is Exception &&
+              e.toString().contains("negative numbers not allowed -2"),
+        ),
+      ),
+    );
   });
 ```
 
 Output:
 
 ```
-  00:00 +4: All tests passed!   
+  00:00 +5: All tests passed!
 ```
 
 ## License

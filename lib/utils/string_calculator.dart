@@ -32,6 +32,22 @@ class StringCalculator {
 
   /// Test Case 4: Support different delimiters. For example,
   ///  "//;\n1;2" where the delimiter is ";" should return 3.
+  // static int add(String numbers) {
+  //   if (numbers.isEmpty) return 0;
+  //   String delimiter = ',';
+  //   if (numbers.startsWith('//')) {
+  //     final delimiterEnd = numbers.indexOf('\n');
+  //     delimiter = numbers.substring(2, delimiterEnd);
+  //     numbers = numbers.substring(delimiterEnd + 1);
+  //   }
+
+  //   final replacedSet = numbers.replaceAll('\n', delimiter);
+  //   final parts = replacedSet.split(delimiter);
+  //   return parts.map(int.parse).reduce((a, b) => a + b);
+  // }
+
+  /// Test Case 5: Calling add with a negative number will throw an
+  ///  exception: "negative numbers not allowed <negative_number>".
   static int add(String numbers) {
     if (numbers.isEmpty) return 0;
     String delimiter = ',';
@@ -43,6 +59,13 @@ class StringCalculator {
 
     final replacedSet = numbers.replaceAll('\n', delimiter);
     final parts = replacedSet.split(delimiter);
-    return parts.map(int.parse).reduce((a, b) => a + b);
+    final nums = parts.map(int.parse).toList();
+
+    final negatives = nums.where((n) => n < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw Exception('negative numbers not allowed ${negatives.join(',')}');
+    }
+
+    return nums.reduce((a, b) => a + b);
   }
 }
