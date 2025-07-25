@@ -1,16 +1,72 @@
-# tdd_assignment
+# TDD Assignment
+## _Made for Incubyte_
 
-A new Flutter project.
+In this assignment, we will write down the test cases for "String Calculator TDD Kata" by keeping the below points in mind:
 
-## Getting Started
+- Host your solution on a public GitHub/GitLab repository.
+- Follow best practices for TDD. Watch this video to understand TDD better.
+- Commit your changes frequently, ideally after every change to show how your code evolves with every step of TDD.
+- We encourage you to use the programming language and tools best suited for the role you are applying for.
+- Do not rush, take your time. We want to see your best work!
+- Send us the link to your repo once you’re happy with what you have done, make sure to include screenshots and other relevant information.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Input a comma-separated numbers for signature `int add(string numbers)`
+- Output: an integer, sum of the numbers
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tech
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I have used Flutter to write down the test-cases:
+
+- [Flutter](https://flutter.dev) - An open-source platform for multi-platform solutions!
+- [Dart](https://dart.dev/) - Dart is the programming language we used in Flutter.
+
+And of course in this repository, we have used the Dart programming language to write down the test-cases.
+
+## Installation
+
+TDD Assignment requires [Flutter](https://flutter.dev/) to run.
+
+## Plugins
+
+TDD Assignment is currently dependent with the following plugins.
+
+| Plugin | README |
+| ------ | ------ |
+| test | https://pub.dev/packages/test |
+
+## Development
+
+To use the method signature `int add(string numbers)`, I have created a file under `lib>utils` with name as `string_calculator.dart`.
+
+To see the development, we need to go to `test` directory. Under `test` directory, we have a file named `unit_test.dart`.
+
+Open your Terminal and run these commands.
+
+```sh
+flutter test
+```
+
+#### Result for Initial Test Case
+
+As we are considering:
+> Start with the simplest test case of an empty string and move to one and two numbers.
+
+I have written down the code as:
+
+```dart
+test('Empty string returns 0', () {
+    expect(StringCalculator.add(""), 0);
+  });
+```
+
+Output:
+
+```
+  00:03 +1: All tests passed!   
+```
+
+## License
+
+MIT
