@@ -17,4 +17,9 @@ void main() {
   test('Multiple numbers returns its sum', () {
     expect(StringCalculator.add("1,2,3,4"), 10);
   });
+
+  /// Test case to handle new line delimiters
+  test('New lines and commas are valid delimiters', () {
+    expect(StringCalculator.add("1\n2,3"), 6);
+  });
 }

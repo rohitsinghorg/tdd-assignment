@@ -51,21 +51,20 @@ flutter test
 #### Result for Initial Test Case
 
 As we are considering:
-> Allow the add method to handle any amount of numbers.
-
+> Allow the add method to handle new lines between numbers (instead of commas). ("1\n2,3" should return 6)
 
 I have written down the test case as:
 
 ```dart
-test('Multiple numbers returns its sum', () {
-    expect(StringCalculator.add("1,2,3,4"), 10);
+test('New lines and commas are valid delimiters', () {
+    expect(StringCalculator.add("1\n2,3"), 6);
   });
 ```
 
 Output:
 
 ```
-  00:03 +2: All tests passed!   
+  00:00 +3: All tests passed!   
 ```
 
 ## License

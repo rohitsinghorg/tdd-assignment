@@ -16,9 +16,17 @@ class StringCalculator {
 
   /// Test Case 2: Allow the method to handle any amount of numbers and generate
   /// the result by adding each number.
+  // static int add(String numbers) {
+  //   if (numbers.isEmpty) return 0;
+  //   final List<String> parts = numbers.split(',');
+  //   return parts.map(int.parse).reduce((a, b) => a + b);
+  // }
+
+  /// Test Case 3: Allow the method to handle new line delimiters.
   static int add(String numbers) {
     if (numbers.isEmpty) return 0;
-    final List<String> parts = numbers.split(',');
+    final replacedSet = numbers.replaceAll('\n', ',');
+    final List<String> parts = replacedSet.split(',');
     return parts.map(int.parse).reduce((a, b) => a + b);
   }
 }
