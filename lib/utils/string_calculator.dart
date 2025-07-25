@@ -7,10 +7,18 @@ class StringCalculator {
   /// Method [add] is used find out the numbers available in the input and
   /// perform the add operation on them. If the input is empty, then the result
   /// will be 0, else return the same input.
+  // static int add(String numbers) {
+  //   if (numbers.isEmpty) {
+  //     return 0;
+  //   }
+  //   return int.parse(numbers);
+  // }
+
+  /// Test Case 2: Allow the method to handle any amount of numbers and generate
+  /// the result by adding each number.
   static int add(String numbers) {
-    if (numbers.isEmpty) {
-      return 0;
-    }
-    return int.parse(numbers);
+    if (numbers.isEmpty) return 0;
+    final List<String> parts = numbers.split(',');
+    return parts.map(int.parse).reduce((a, b) => a + b);
   }
 }

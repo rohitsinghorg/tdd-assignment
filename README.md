@@ -51,20 +51,21 @@ flutter test
 #### Result for Initial Test Case
 
 As we are considering:
-> Start with the simplest test case of an empty string and move to one and two numbers.
+> Allow the add method to handle any amount of numbers.
 
-I have written down the code as:
+
+I have written down the test case as:
 
 ```dart
-test('Empty string returns 0', () {
-    expect(StringCalculator.add(""), 0);
+test('Multiple numbers returns its sum', () {
+    expect(StringCalculator.add("1,2,3,4"), 10);
   });
 ```
 
 Output:
 
 ```
-  00:03 +1: All tests passed!   
+  00:03 +2: All tests passed!   
 ```
 
 ## License

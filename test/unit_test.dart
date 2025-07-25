@@ -12,4 +12,9 @@ void main() {
   test('Empty string returns 0', () {
     expect(StringCalculator.add(""), 0);
   });
+
+  /// Test case to handle comma-separated numbers
+  test('Multiple numbers returns its sum', () {
+    expect(StringCalculator.add("1,2,3,4"), 10);
+  });
 }
