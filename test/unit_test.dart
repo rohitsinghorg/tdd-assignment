@@ -22,4 +22,9 @@ void main() {
   test('New lines and commas are valid delimiters', () {
     expect(StringCalculator.add("1\n2,3"), 6);
   });
+
+  /// Test case to handle custom delimiter
+  test('Supports custom delimiter', () {
+    expect(StringCalculator.add("//;\n1;2"), 3);
+  });
 }

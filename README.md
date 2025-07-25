@@ -51,20 +51,21 @@ flutter test
 #### Result for Initial Test Case
 
 As we are considering:
-> Allow the add method to handle new lines between numbers (instead of commas). ("1\n2,3" should return 6)
+> Support different delimiters:
+- To change the delimiter, the beginning of the string will contain a separate line that looks like this: "//[delimiter]\n[numbers…]". For example, "//;\n1;2" where the delimiter is ";" should return 3.
 
 I have written down the test case as:
 
 ```dart
-test('New lines and commas are valid delimiters', () {
-    expect(StringCalculator.add("1\n2,3"), 6);
+test('Supports custom delimiter', () {
+    expect(StringCalculator.add("//;\n1;2"), 3);
   });
 ```
 
 Output:
 
 ```
-  00:00 +3: All tests passed!   
+  00:00 +4: All tests passed!   
 ```
 
 ## License

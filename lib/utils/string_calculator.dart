@@ -23,10 +23,26 @@ class StringCalculator {
   // }
 
   /// Test Case 3: Allow the method to handle new line delimiters.
+  // static int add(String numbers) {
+  //   if (numbers.isEmpty) return 0;
+  //   final replacedSet = numbers.replaceAll('\n', ',');
+  //   final List<String> parts = replacedSet.split(',');
+  //   return parts.map(int.parse).reduce((a, b) => a + b);
+  // }
+
+  /// Test Case 4: Support different delimiters. For example,
+  ///  "//;\n1;2" where the delimiter is ";" should return 3.
   static int add(String numbers) {
     if (numbers.isEmpty) return 0;
-    final replacedSet = numbers.replaceAll('\n', ',');
-    final List<String> parts = replacedSet.split(',');
+    String delimiter = ',';
+    if (numbers.startsWith('//')) {
+      final delimiterEnd = numbers.indexOf('\n');
+      delimiter = numbers.substring(2, delimiterEnd);
+      numbers = numbers.substring(delimiterEnd + 1);
+    }
+
+    final replacedSet = numbers.replaceAll('\n', delimiter);
+    final parts = replacedSet.split(delimiter);
     return parts.map(int.parse).reduce((a, b) => a + b);
   }
 }
